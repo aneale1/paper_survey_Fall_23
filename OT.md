@@ -40,7 +40,7 @@ TODO: I don't fully understand this yet.
 
 * ***Output***: the chooser's output is $M_\sigma$
 
-* ***Prelim***: The protocol operates over a group $\Z_q$ of **prime order**. $G_q$ can be a subgroup of order $q$ of $\Z_p^*$ where $p$ is prime and and $q|p-1$. Let $g$ be the generator group for which **Comp DH** holds. The protocol uses a function $H$ which is assumed to be a random oracle.
+* ***Prelim***: The protocol operates over a group $\Z_q$ of **prime order**. $G_q$ can be a **subgroup of order $q$** of $\Z_p^*$ where $p$ is prime and and $q|p-1$. Let $g$ be the generator group for which **Comp DH** holds. The protocol uses a function $H$ which is assumed to be a random oracle.
 
  * ***Init***: The sender chooses a random element $C\isin\Z_q$ and publishes it. The chooser will not know the Dlog of $C$ to the base $g$. We do not care if the sender knows Dlog of $C$
  
@@ -54,5 +54,5 @@ TODO: I don't fully understand this yet.
     * chooser $\rightarrow$ sender: one group element is used 
     * sender $\rightarrow$ chooser: two group elements are used, and two elements in the size of the inputs 
 * ***Security:***
-
-
+    * chooser's privacy: This is preserved since the value that she sends to the sender is uniformly random and independent of $\sigma$.
+    * sender's security: The chooser cannot know the Dlog of both $PK_0$ and $PK_1$, since that would reveal the Dlog of $C$. The DH assumption imples that she (the chooser) cannot compute both $(PK_0)^{r0}$ and $(PK_1)^{r1}$. Together with the random oracle assumption, this ensures that she (the chooser) cannot distinguish $H((PK_0)^{r0})$ or $H((PK_1)^{r1})$ from random.
