@@ -34,7 +34,25 @@ TODO: I don't fully understand this yet.
 
 ## The basic oblivious transfer protocol (the good stuff)
 
- this includes random oracles.
+ Oblivious transfer with a random oracle
 
- * *Input*: the chooser's input is $\sigma\isin\{0,1\}$. The sender's is $(M_0,M_1)$ 
- * *Output*: the chooser's output is $M_\sigma$
+* ***Input***: the chooser's input is $\sigma\isin\{0,1\}$. The sender's is $(M_0,M_1)$ 
+
+* ***Output***: the chooser's output is $M_\sigma$
+
+* ***Prelim***: The protocol operates over a group $\Z_q$ of **prime order**. $G_q$ can be a subgroup of order $q$ of $\Z_p^*$ where $p$ is prime and and $q|p-1$. Let $g$ be the generator group for which **Comp DH** holds. The protocol uses a function $H$ which is assumed to be a random oracle.
+
+ * ***Init***: The sender chooses a random element $C\isin\Z_q$ and publishes it. The chooser will not know the Dlog of $C$ to the base $g$. We do not care if the sender knows Dlog of $C$
+ 
+ * ***Protocol:***
+    1. The chooser picks a random $1\leqslant k \leqslant q$, sets public keys $PK_\sigma = g^k$ and $PK_{1-\sigma} = C/PK_\sigma$ and sends $PK_0$ to the sender.
+    2. The sender computes $PK_1 = C/PK_0$ and chooses a random $r_0,r_1 \isin \Z_q$. It encrypts $M_0$ by $E_0 = \braket{g^{r0}, H(PK_0^{r0})\oplus M_0}$ and $M_1$ by $E_1 = \braket{g^{r1}, H(PK_1^{r1})\oplus M_1}$ and sends $(E_0,E_1)$ to the chooser.
+    3. chooser computes $H((g^{r\sigma})^k) = H(PK_\sigma^{r\sigma})$ and uses it to decrypt $M_\sigma$.
+
+
+* ***Overhead:*** The sender has to compute four exps. (two are precomputed before the protocol). The chooser has to choose two exponentiations (one is precomputed). This is referring to the $E_0 = \braket{g^{r0}, H(PK_0^{r0})\oplus M_0}$ and the corresponding $E_1$ that is also sent along. 
+    * chooser $\rightarrow$ sender: one group element is used 
+    * sender $\rightarrow$ chooser: two group elements are used, and two elements in the size of the inputs 
+* ***Security:***
+
+
