@@ -48,6 +48,7 @@ what sort of
 * How are we protected from semi-honest attackers?
 * How are we protected froma malicious scenario?
     * The sender sends a garbled circuit, but it isn't correct.
+        * found a good little slide show on garbled circuits [https://web.engr.oregonstate.edu/~rosulekm/cryptabit/4-malicious.pdf]
 
 ### Let do a live demo of OT -> there are few libraries out there that will allow us to use garbled cicuits
 
