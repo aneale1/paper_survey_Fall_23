@@ -8,8 +8,7 @@ To summerize OT:
 
 #### Contributions
 
-TODO: I don't fully understand this yet.
-
+* Exponentiations are expensive, they have a method that has 2 exponentiations for the chooser and $O(N)$ for the sender in the case of a 1-out-of-N scheme
 * low amortized overhaed
 * badwidth/computation trade-off
 
@@ -30,7 +29,7 @@ TODO: I don't fully understand this yet.
 
 #### Assumptions and Model
 
-* Something something Random Oracle
+* Some constructions use a function H that is used a random oravcle. This oracle is usually implelemented as a Hash function.
 
 ## The basic oblivious transfer protocol (the good stuff)
 
@@ -56,3 +55,6 @@ TODO: I don't fully understand this yet.
 * ***Security:***
     * chooser's privacy: This is preserved since the value that she sends to the sender is uniformly random and independent of $\sigma$.
     * sender's security: The chooser cannot know the Dlog of both $PK_0$ and $PK_1$, since that would reveal the Dlog of $C$. The DH assumption imples that she (the chooser) cannot compute both $(PK_0)^{r0}$ and $(PK_1)^{r1}$. Together with the random oracle assumption, this ensures that she (the chooser) cannot distinguish $H((PK_0)^{r0})$ or $H((PK_1)^{r1})$ from random.
+
+
+
