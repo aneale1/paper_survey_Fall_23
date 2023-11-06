@@ -23,3 +23,26 @@ Ginny, in this case, is the garbler and is sending a garbled AND gate to Evan.
     * Evan does not want Ginny to learn $e$, so we need a way to protect it.
     * This is where oblivious transfer comes in. In this case, Evan is the chooser, and Ginny is the sender.
 
+## Formal stuff
+
+* Garbeled Circuit Scheme:
+    *  $\mathcal{G}$ is made up of four polynomial run time algs (Gb, En, Ev, De).
+    1. Gb $(1^{\lambda},f$ -> $(F,e,d)$
+        * takes in a circuit f and security paratmer. Encodes information e, and decoding information d
+    2. En$(e,x)$ -> $X$
+        * Takes the encoded information and returns the garbled input X.
+    3. Ev$(F,X)$ -> $Y$
+        * the evaluation alg EV take in the garbled circuit F and the garbled input X, and return garled input y.
+    4. De$(d,Y)$ -> $y$
+        * Take in the decoding information d, garbled output, and comes out with y.
+
+### Security
+
+provides obliviousness, privacy, and authenticity.
+* oblivious : $F$ and $X$ do not reveal anything about input x.
+* privacy: knowing d allows you to reveal y, but does not give you any more information about x. (e.g you know both people chose the same input if y=1, but you don't know who if y=0)
+* authentic if an adversary given $F$ and $X$ cannot find a $Y' \neq Ev(F,X)$ that decodes without error.
+
+what are the obliviousSim games and what are the privSim game?
+
+
