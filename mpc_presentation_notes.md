@@ -22,6 +22,7 @@ what sort of
         * people want to know know what each's other input is
     * the malicius attacker
         * what if someone wants to play a trick and try to subvert the protocol in someway?
+        * the sender sends the wrong circuit -> what do they hope to achieve with this?
 
 ### propose the the solution
 
@@ -29,18 +30,47 @@ what sort of
     * what is garbeling?
     * how does it work?
 
+details [read me](./gc_intro.md)
+
+
 * There is a non-trivial step...
 
+* naively, the chooser is going to attempt to every garbled output.
+    * you will only get one valid output/decryption for one value.
+    * if you got a valid output for more than one value, you would violate the authenticity!
+
 ### Oblivious Transfer (OT)
+* What is the goal of oblivious transfer?
+    * to hide the inputs of the sender and the evaluator from each other.
 
 * Go through how OT work and summerize
     * this will protect us against a semi-honest attacker
+
+* in a high level summary in the context of the GC. Remeber, the garbeling is seperate from the OT! we don't usually have the decoding part in OT though we do try to hide our input.
+* the encoding part of the garbler is the labels.
+    1. sender has a random element of the group
+    2. the chooser computes two public keys, one is just $g^k$ and the other other is $(g^k)^{-1}*C$
+    3. At this point, the sender has encrypted and permuted the outputs of the circuit using every option as key.
+        * the sender knows the labels and knows the permuatations. but the chooser does not.
+
+* extending the circuits to arbitraty bit widths for $X$ and $Y$
+    * If you are familar with some basic computer architecture, you may already understand that we can represent every function
+    * For example, look at an FPGA. You have collction of programmble look up tables (LUTs) that simulate hardware.
+        * if we're able to show that this work one for gate, then we can abstract out this gate to get a circuit that represents an entire function with differnt input and output widths.
+
+* **problem with the toy example, the output is too simple. becuase we will get a 0 or a 1, form the output, we may not know
+which cipher text is correct. We can fix this by having label that corresponds with the output of the gate. In fact, this is how
+we are able to** I don't think this is true. Try and figure this out and come back to it later
 
 
 ### Circle back to the yao's millionare problem
 
 * Apply apply OT
 * Hey, this only seems to work with one bit? how do we make this work with larger number of bits?
+
+### how is the milliaonare problem different from Ginney and Evan
+
+* we have differnt bit widths for input to the gate
 
 ## Run time (if possible)
 * Lets talk about efficiency if we can....
