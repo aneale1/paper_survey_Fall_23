@@ -18,6 +18,3 @@ the framework has two layers: (wtf they literally said 3 in the abstract)
 TODO: heterogeneuous versus homogeneuous GC loops
     * I don't know what they mean by this
 
-
-
-
