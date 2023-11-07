@@ -22,6 +22,7 @@ what sort of
         * people want to know know what each's other input is
     * the malicius attacker
         * what if someone wants to play a trick and try to subvert the protocol in someway?
+        * you can protect this with a commitment value in some implementations. see the foundationsofgc paper.
         * the sender sends the wrong circuit -> what do they hope to achieve with this?
 
 ### propose the the solution
@@ -29,6 +30,10 @@ what sort of
 * Yao's garbled circuits
     * what is garbeling?
     * how does it work?
+
+* Map an an intial input $x$ to a gabled input $X$ using the encoding information $e$
+* $F$ is a garbled function that maps each $X$ to a garbled $Y$
+* $d$ maps the garbled $Y$ to actual y.
 
 details [read me](./gc_intro.md)
 

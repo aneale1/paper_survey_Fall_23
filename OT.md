@@ -56,5 +56,8 @@ To summerize OT:
     * chooser's privacy: This is preserved since the value that she sends to the sender is uniformly random and independent of $\sigma$.
     * sender's security: The chooser cannot know the Dlog of both $PK_0$ and $PK_1$, since that would reveal the Dlog of $C$. The DH assumption imples that she (the chooser) cannot compute both $(PK_0)^{r0}$ and $(PK_1)^{r1}$. Together with the random oracle assumption, this ensures that she (the chooser) cannot distinguish $H((PK_0)^{r0})$ or $H((PK_1)^{r1})$ from random.
 
+### OG OT
 
+Oblivious transfer means that a reciever and can authenticate a secret value, even though they do not know the secret themselves. [paper](https://dl.acm.org/doi/pdf/10.1145/3812.3818)
 
+there is the 1-out-of-2 oblivious transfer which is what is described 
