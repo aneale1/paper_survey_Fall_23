@@ -43,6 +43,8 @@ provides obliviousness, privacy, and authenticity.
 * privacy: knowing d allows you to reveal y, but does not give you any more information about x. (e.g you know both people chose the same input if y=1, but you don't know who if y=0)
 * authentic if an adversary given $F$ and $X$ cannot find a $Y' \neq Ev(F,X)$ that decodes without error.
 
-what are the obliviousSim games and what are the privSim game?
+* See Defs 1-4 of the paper. I don't want to write it out.
+    * This formally shows the obliviousness, privacy, and authenticity games that are played to prove security.
 
-
+![images](../md_images/gc_intro/gc_intro_games_1.png)
+![images](../md_images/gc_intro/gc_intro_games_2.png)
