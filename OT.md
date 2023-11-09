@@ -60,4 +60,5 @@ To summerize OT:
 
 Oblivious transfer means that a reciever and can authenticate a secret value, even though they do not know the secret themselves. [paper](https://dl.acm.org/doi/pdf/10.1145/3812.3818)
 
-there is the 1-out-of-2 oblivious transfer which is what is described 
+there is the 1-out-of-2 oblivious transfer which is what is described as:
+* allows one party to transfer exactly one secret, out of two recognizable secretes, to his counterpart. Each secret is received with the probability of one half, while the sender is ignorant of which secret has been received.
